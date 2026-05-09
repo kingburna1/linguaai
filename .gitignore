@@ -46,6 +46,7 @@ ENV/
 .vscode/launch.json
 .history/
 .cursor/
+.agents/
 
 # --- Operating System Files ---
 .DS_Store
