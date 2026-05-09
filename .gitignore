@@ -1,0 +1,61 @@
+# --- Python Specific ---
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Virtual Environments ---
+# Since you used .venv, this covers your current setup
+.venv/
+venv/
+ENV/
+
+# --- Environment Secrets (CRITICAL) ---
+# This prevents your Groq, Gemini, and Supabase keys from being pushed
+.env
+.env.local
+.env.*
+!.env.example
+
+# --- Database & Local Storage ---
+*.db
+*.sqlite3
+# Local Supabase data if using Supabase CLI
+.supabase/
+
+# --- IDEs and Editors ---
+# For Cursor and VS Code
+.vscode/
+.vscode/settings.json
+.vscode/launch.json
+.history/
+.cursor/
+
+# --- Operating System Files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Testing & Coverage ---
+.target/
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+htmlcov/
