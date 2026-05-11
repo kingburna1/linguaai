@@ -127,7 +127,7 @@ async def get_session_messages(
     return messages
 
 
-# ── GET UNREAD MESSAGES ────────────────────────────────────────────────────────
+#  GET UNREAD MESSAGES 
 
 @router.get("/{session_id}/unread", response_model=List[MessageOut])
 async def get_unread_messages(
@@ -147,7 +147,7 @@ async def get_unread_messages(
     return unread
 
 
-# ── MARK MESSAGE AS READ ───────────────────────────────────────────────────────
+# MARK MESSAGE AS READ 
 
 @router.patch("/{message_id}/read", response_model=MessageOut)
 async def mark_message_as_read(
@@ -170,7 +170,7 @@ async def mark_message_as_read(
     return message
 
 
-# ── DELETE SESSION MESSAGES ────────────────────────────────────────────────────
+
 
 @router.delete("/{session_id}", response_model=MessageResponse)
 async def delete_session_messages(
@@ -194,7 +194,7 @@ async def delete_session_messages(
     )
 
 
-# ── ASYNC BACKGROUND TASKS ────────────────────────────────────────────────────
+
 
 async def process_user_message(
     session_id: UUID,
