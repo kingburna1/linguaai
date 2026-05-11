@@ -41,7 +41,12 @@ class User(Base):
     sessions        = relationship("LearningSession", back_populates="user", cascade="all, delete-orphan")
     messages        = relationship("ChatMessage", back_populates="user", cascade="all, delete-orphan")
     progress        = relationship("UserProgress", back_populates="user", cascade="all, delete-orphan")
-    children        = relationship("User", backref="parent", foreign_keys=[parent_id])
+    children = relationship(
+    "User",
+    foreign_keys=[parent_id],
+    backref="parent",
+    primaryjoin="User.parent_id == remote(User.id)",
+)
 
     def __repr__(self):
         return f"<User {self.email} | {self.role}>"

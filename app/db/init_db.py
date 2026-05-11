@@ -10,14 +10,10 @@ async def init_db() -> None:
   
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
-    print("✅ All database tables created successfully.")
+    print("All database tables created successfully.")
 
 
 async def drop_db() -> None:
-    """
-    DANGER: Drops ALL tables. Only use during development to reset the database.
-    Never run this in production.
-    """
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)
-    print("⚠️  All tables dropped.")
+    print("  All tables dropped.")

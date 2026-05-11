@@ -1,9 +1,12 @@
 from contextlib import asynccontextmanager
-from fastapi import FastAPI
+from fastapi import FastAPI ,Request
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
 from app.db.init_db import init_db
+
+
 
 
 @asynccontextmanager
@@ -34,10 +37,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ── Routes (add more as you build them) ──────────────────────
-# from app.api.v1.routes import auth, users
-# app.include_router(auth.router,  prefix="/api/v1/auth",  tags=["Auth"])
-# app.include_router(users.router, prefix="/api/v1/users", tags=["Users"])
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=500,
+        content={"detail": "An internal server error occurred"},
+    )
+
+#  Routes
+from app.api.v1.routes import auth ,users, languages
+app.include_router(auth.router, prefix="/api/v1/auth", tags=["Auth"])
+app.include_router(users.router, prefix="/api/v1/users", tags=["Users"])
+app.include_router(languages.router, prefix="/api/v1/languages", tags=["Languages"])
+
 
 
 @app.get("/", tags=["Health"])
