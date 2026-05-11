@@ -45,10 +45,16 @@ async def global_exception_handler(request: Request, exc: Exception):
     )
 
 #  Routes
-from app.api.v1.routes import auth ,users, languages
+from app.api.v1.routes import auth ,users, languages, sessions
+from app.api.v1.routes import auth, users, languages, sessions, chat, calls, content
+
 app.include_router(auth.router, prefix="/api/v1/auth", tags=["Auth"])
 app.include_router(users.router, prefix="/api/v1/users", tags=["Users"])
 app.include_router(languages.router, prefix="/api/v1/languages", tags=["Languages"])
+app.include_router(sessions.router, prefix="/api/v1/sessions", tags=["Sessions"])
+app.include_router(chat.router, prefix="/api/v1/chat", tags=["Chat"])
+app.include_router(calls.router, prefix="/api/v1/calls", tags=["Calls"])
+app.include_router(content.router, prefix="/api/v1/content", tags=["Content"])
 
 
 
