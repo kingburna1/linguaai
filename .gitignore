@@ -60,3 +60,7 @@ desktop.ini
 .nox/
 .coverage
 htmlcov/
+gcp-service-account.json
+*.json
+gcp-service-account*
+*.json.json

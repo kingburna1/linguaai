@@ -21,6 +21,7 @@ class TextMessageIn(BaseSchema):
 
 class VoiceMessageIn(BaseSchema):
     session_id: UUID
+    audio_url: str
 
 
 class MessageOut(TimestampSchema):

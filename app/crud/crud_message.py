@@ -196,4 +196,4 @@ class CRUDMessage(CRUDBase[ChatMessage]):
         return count
 
 
-message = CRUDMessage(ChatMessage)
+crud_message = CRUDMessage(ChatMessage)
